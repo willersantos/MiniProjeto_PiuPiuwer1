@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Feed.css" media="screen" />
+    <!--Associei inicialmente ao arquivo CSS para estilização do arquivo-->
+    <title>Connect / PiuPiuwer</title>
+    <script language="JavaScript" src="Feed.js"></script>
+    <!--Gerei um arquivo inicial de JS, no qual executei algumas funcionalidades do arquivo principal-->
+</head>
+<body id="body">
+    <!--Essa primeira div separei para o lado esquerdo da tela, de modo que facilitasse a divisão de espaços na tela-->
+    <div id="left">
+        <aside>
+            <!--coloquei em três partes, na qual temos o logo, o menu, e as informações do usuário, no caso eu estou sendo o usuário-->
+            <img id="Logo_PiuPiuwer" src="./Photos/Group 7.png" onmouseover="sombra();" onmouseout="Nsombra();"/>
+            <div id="menu">
+                <ul>
+                    <!--Dado aqui estão algumas funções utilizadas, sendo a ativo 5 para variar o background das opções e a desativo 5 para voltar o background inicial-->
+                    <li onmouseover="ativo5(0,0.15);" onmouseout="desativo5(0);"><img src="./Photos/Group 39.png"/><a href="">Home</a></li>
+                    <li onmouseover="ativo5(1,0.15);" onmouseout="desativo5(1);"><img src="./Photos/Group 40.png"/><a href="">Explore</a></li>
+                    <li onmouseover="ativo5(2,0.15);" onmouseout="desativo5(2);"><img src="./Photos/Group 41.png"/><a href="">Notification</a></li>
+                    <li onmouseover="ativo5(3,0.15);" onmouseout="desativo5(3);"><img src="./Photos/Group 42.png"/><a href="">Messages</a></li>
+                    <li onmouseover="ativo5(4,0.15);" onmouseout="desativo5(4);"><img src="./Photos/Vector 20.png"/><a href="">Bookmarks</a></li>
+                    <li onmouseover="ativo5(5,0.15);" onmouseout="desativo5(5);"><img src="./Photos/Group 44.png"/><a href="">Lists</a></li>
+                    <li onmouseover="ativo5(6,0.15);" onmouseout="desativo5(6);"><img src="./Photos/Group 45.png"/><a href="">Profile</a></li>
+                    <li onmouseover="ativo5(7,0.15);" onmouseout="desativo5(7);"><img src="./Photos/Group 46.png"/><a href="">More</a></li>
+                    <li id="Botão_Piu"><button onmouseover="ativo3();" onmouseout="desativo3();" onclick="piu()"><p>Piu</p></button></li>
+                </ul>
+            </div>
+            <!--Essa div foi para a identificação do usuário, dividindo-a como uma parte para facilitar no posicionamento e organização-->
+            <div id="user_identification">
+                <img src="./Photos/Foto_Perfil.jpg"/>
+                <ul>
+                    <li><a id="user_name">Willer Santos</a></li>
+                    <li><a id="user_email">@Willer Santos</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <!--a tag section foi utilizada no centro, contendo o conteúdo visitado, nome, pius, e alguns outros elementos-->
+    <section>
+        <div id="superior">
+            <div id="profile_infos">
+                <img src="./Photos/Arrow 2.png"/>
+                <ul>
+                    <li><a id="user_name">Poli Júnior</a></li>
+                    <li><a id="user_email">likes</a></li>
+                </ul>
+            </div>
+            <nav id="options">
+                <!--Esse é o guia de navegação, onde podemos observar as opções, e algumas funções em cada um-->
+                <!--A função ativo serve para mudar a posição da barra amarela e o expandir para mudar seu comprimento-->
+                <!--Enquanto a fazer requisição serve para carregar os Pius, ou limpar a tela conforme a mudança-->
+                <!--Comentários salvos serve para mostrar novamente os meus pius e recarregá-los, já a ativo6 e desativo6 servem para mudar a cor das opções-->
+                <ul>
+                    <li onclick="ativo(0);expandir(105);fazerRequisicao1(false);comentários_salvos();" onmouseover="ativo6(0);" onmouseout="desativo6(0);">Pius</li>
+                    <li onclick="ativo(105);expandir(178);fazerRequisicao1(false);" onmouseover="ativo6(1);" onmouseout="desativo6(1);">Pius & RePius</li>
+                    <li onclick="ativo(283);expandir(120);fazerRequisicao1(false);" onmouseover="ativo6(2);" onmouseout="desativo6(2);">Media</li>
+                    <li onclick="ativo(403);expandir(127);fazerRequisicao1(true);" onmouseover="ativo6(3);" onmouseout="desativo6(3);">Likes</li>
+                </ul>
+                <div id="barra_de_opção"></div>
+            </nav>
+            <div id="general_infos">
+                <!--São as informações gerais, o botão de Set Up Profile e a imagem do profile visitado-->
+                <button id="SetUpProfile" onmouseover="ativo2();" onmouseout="desativo2();"><p id="SetUpProfile2">Set up profile</p></button>
+                <div id="lista">
+                    <ul>
+                        <li><a id="user_name">Poli Júnior</a></li>
+                        <li><a id="user_email">@Poli_junior</a></li>
+                    </ul>
+                    <img id="piu" src="./Photos/Vector 36.png"/>
+                </div>
+                <img id="capa" src="./Photos/PJ_capa.jpg"/>
+                <img id="perfil" src="./Photos/PJ_profile.jpg" onclick="janela(0);"/>
+            </div>
+        </div>
+        <!--A div inferior é onde estão alocados os pius postados, e os meus pius-->
+        <div id="inferior">
+            <table id="comentário_info">
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!--Essa é a parte da direita-->
+    <div id="right">
+        <article>
+            <!--Essa é o espaço da barra de pesquisa-->
+            <div id="barra_de_pesquisa">
+                <input type="text" id="input_text" name="search" id="search" placeholder="Search PiuPiuwer"/>
+                <img src="./Photos/Vector 33.png"/>
+            </div>
+            <!--Essas duas div's foram separadas para o campo follow e noticias-->
+            <div id="follow">
+                <ul>
+                    <li><p>You might like</p></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <a>Show more</a>
+                </ul>
+            </div>
+            <div id="happening">
+                <ul>
+                    <li><p>What’s happening</p></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </article>
+    </div>
+    <!--Espaço para o Piu e o input que é gerado na function-->
+    <!--a function ativo 4 serve para mudar a cor do botão fechar e desativo 4 para voltar a cor-->
+    <!--anterior, e a função fechar fecha o espaço de piu onde pode ser feito a postagem-->
+    <div id="Piu_comentario">
+        <div id="espaço_de_piu">
+            <div id="botão_fecha">
+                <img src="" onmouseover="ativo4(true);" onmouseout="desativo4(true);" onclick="fechar();"/>
+            </div>
+            <div id="campo_post">
+                <form id="forms-1">
+                </form>
+                <div id="Piu_button" >
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    <!--Essa div serve para a expansão da foto de perfil-->
+    </div>
+    <div id="fechar" onclick="diminuifoto();"></div>
+</body>
+<!--Outros dois Scripts para facilitar o entendimento de terceiros, preferindo colocá-los aqui-->
+<!--pela necessidade de executá-los aqui, depois de alguns elementos já terem sido criados-->
+<script language="JavaScript" src="post.js"></script>
+<script language="JavaScript" src="post2.js"></script>
+</html>
